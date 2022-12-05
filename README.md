@@ -2,6 +2,6 @@
 
 ## Tópicos abordados:
 
-- Criando Scripts e Tests para automação de collections no Postman 🚀🧑🏼‍🚀
-- Configurando o Newman para Gerar Relatórios html 📃🌐 
+- Criando Scripts e Tests para Automação de Collections no Postman 🚀🧑🏼‍🚀
+- Configurando o Newman para Gerar Relatórios do tipo HTML 📃🌐 
 - Configuração do CI - Continuous Integration 🤖🎯
