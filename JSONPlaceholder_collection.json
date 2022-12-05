@@ -1,0 +1,562 @@
+{
+	"info": {
+		"_postman_id": "bdfb47c8-0c79-4031-a4e4-4e29d3bf7441",
+		"name": "ci_JSONPlaceholder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18474643"
+	},
+	"item": [
+		{
+			"name": "GET - JSONPlaceholder/posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful GET request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The status code name has the text: OK\", () => {\r",
+							"pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - JSONPlaceholder/posts [With Id]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function id() {\r",
+							"    var id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];\r",
+							"\r",
+							"    var randomItem = id[Math.floor(Math.random() * id.length)];\r",
+							"\r",
+							"    return randomItem;\r",
+							"}\r",
+							"pm.environment.set(\"Id\", id());\r",
+							"console.log(id());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful GET request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The status code name has the text: OK\", () => {\r",
+							"pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/{{Id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"{{Id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - JSONPlaceholder/posts/comments [With Id]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function id() {\r",
+							"    var id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];\r",
+							"\r",
+							"    var randomItem = id[Math.floor(Math.random() * id.length)];\r",
+							"\r",
+							"    return randomItem;\r",
+							"}\r",
+							"pm.environment.set(\"Id\", id());\r",
+							"console.log(id());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful GET request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The status code name has the text: OK\", () => {\r",
+							"pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/{{Id}}/comments",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"{{Id}}",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - JSONPlaceholder/posts",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function userId() {\r",
+							"    var userId = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"11\", \"12\", \"13\", \"14\", \"15\", \"16\", \"17\", \"18\", \"19\", \"20\"];\r",
+							"\r",
+							"    var randomItem = userId[Math.floor(Math.random() * userId.length)];\r",
+							"\r",
+							"    return randomItem;\r",
+							"}\r",
+							"pm.environment.set(\"UserId\", userId());\r",
+							"\r",
+							"console.log(userId());\r",
+							"\r",
+							"function id() {\r",
+							"    var id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];\r",
+							"\r",
+							"    var randomItem = id[Math.floor(Math.random() * id.length)];\r",
+							"\r",
+							"    return randomItem;\r",
+							"}\r",
+							"pm.environment.set(\"Id\", id());\r",
+							"console.log(id());\r",
+							"\r",
+							"function title() {\r",
+							"\r",
+							"    var title = [\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris auctor bibendum leo id eleifend. Morbi lobortis augue non fringilla pulvinar. Etiam nunc nisl, dignissim vel.\", \"Tempo. Inesperadamente, inventei uma máquina do tempo.\",  \"Um homem, em Monte Carlo, vai ao cassino, ganha um milhão, volta para casa, se suicida.\", \"Quando acordou o dinossauro ainda estava lá.\", \"70 anos, algumas lágrimas, orelhas peludas.\", \"O suicida era tão meticuloso que teve que refazer diversas vezes o nó da corda para se enforcar.\", \"Uma vida inteira pela frente. O tiro veio por trás.\", \"Quase uma vítima da minha família.\", \"A velha insônia tossiu três da manhã.\", \"Conheceu a esposa em sua festa de despedida.\", \"Vestiu os artefatos, beijou o filho com ternura e saiu pro último trabalho sobre a Terra.\", \"Vende-se sapatinhos de bebê nunca usados.\", \"Uma gaiola saiu à procura de um pássaro.\", \"2 de agosto a Alemanha declarou guerra à Rússia. Natação à tarde.\", \"Nascido no deserto, ainda com sede.\", \"Então você acredita em mim de qualquer maneira?\", \"O homem estava invisível, mas ninguém percebeu.\", \"A mulher que amei se transformou em fantasma.\",\"Eu escolhi paixão. Agora sou pobre.\",\"Fui me confessar ao mar. O que ele disse? Nada.\",\"Se Eu não acreditar em Mim, quem vai acreditar?\",\"Morreu\",\"Escrever sobre sexo, aprender sobre o amor.\", \"Sem futuro, sem passado. Nada perdeu.\", \"Ouvi um barulho no portão, fui ver era a Lua nova.\",\"Assistindo calmamente de cada moldura da porta.\", \"Alzheimer conhecer novas pessoas todos os dias.\", \"Eu perguntei. Eles responderam. Eu escrevi.\", \"Eu ainda faço café para dois.\", \"Em Vênus, Jack olhou na água e encontrou a única coisa que ele apostaria não encontrar lá: um homem.\", \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non neque suscipit ligula accumsan congue.\", \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non.\"];\r",
+							"\r",
+							"    var randomItem = title[Math.floor(Math.random() * title.length)];\r",
+							"    \r",
+							"    return randomItem; \r",
+							"}\r",
+							"    \r",
+							"pm.environment.set(\"Title\", title());\r",
+							"\r",
+							"function body() {\r",
+							"\r",
+							"    var body = [\"Tempo. Inesperadamente, inventei uma máquina do tempo.\", \"Olha, Pai, eu tentei, mas acho que não deu muito certo não…\", \"Um homem, em Monte Carlo, vai ao cassino, ganha um milhão, volta para casa, se suicida.\", \"Quando acordou o dinossauro ainda estava lá.\", \"70 anos, algumas lágrimas, orelhas peludas.\", \"O suicida era tão meticuloso que teve que refazer diversas vezes o nó da corda para se enforcar.\", \"Uma vida inteira pela frente. O tiro veio por trás.\", \"Quase uma vítima da minha família.\", \"A velha insônia tossiu três da manhã.\", \"Conheceu a esposa em sua festa de despedida.\", \"Vestiu os artefatos, beijou o filho com ternura e saiu pro último trabalho sobre a Terra.\", \"Vende-se sapatinhos de bebê nunca usados.\", \"Uma gaiola saiu à procura de um pássaro.\", \"2 de agosto a Alemanha declarou guerra à Rússia. Natação à tarde.\", \"Nascido no deserto, ainda com sede.\", \"Então você acredita em mim de qualquer maneira?\", \"O homem estava invisível, mas ninguém percebeu.\", \"A mulher que amei se transformou em fantasma.\",\"Eu escolhi paixão. Agora sou pobre.\",\"Fui me confessar ao mar. O que ele disse? Nada.\",\"Se Eu não acreditar em Mim, quem vai acreditar?\",\"Morreu\",\"Escrever sobre sexo, aprender sobre o amor.\", \"Sem futuro, sem passado. Nada perdeu.\", \"Ouvi um barulho no portão, fui ver era a Lua nova.\",\"Assistindo calmamente de cada moldura da porta.\", \"Alzheimer conhecer novas pessoas todos os dias.\", \"Eu perguntei. Eles responderam. Eu escrevi.\", \"Eu ainda faço café para dois.\", \"Em Vênus, Jack olhou na água e encontrou a única coisa que ele apostaria não encontrar lá: um homem.\", \"No começo, descrença. Depois, medo, ao ver Bob — tão pequeno — olhando para a faca daquele jeito.\", \"No farol, o menino estende a mão ao carro. Usa nariz de palhaço. Os olhos refletem o brilho do sol.\", \"Quando apertou o gatilho, Mylena não imaginava que o disparo levaria 100 mil anos para atravessar o universo.\", \"Adão tinha de tudo. Celular, mp3, Marlboro. É que Solange, adepta do pompoarismo, tirava de letra as revistas íntimas.\", \"Temia a altura quando pulou para a morte de um prédio em chamas, em 1974. O marido morreu de tifo, a filha mais velha se perdeu e o frio, que foi bom.\", \"Saudade é um pedaço de qualquer coisa morando dentro da gente ainda que louco pra voltar pra casa. A lágrima desceu até encostar no sorriso.\",  \"Padre Francis está há 10 anos na pequena cidade do Colorado. O comércio local estaria estagnado, não fosse o escritório do detetive Bob. Os dois mantêm um acordo secreto: Francis passa informações das confissões, Bob resolve os casos — os delitos, traições e assassinatos da cidadezinha. Os dois ganham dinheiro. Um dia, Bob entra no confessionário e conta como vai matar Francis no dia seguinte. E cumpre.\", \"Passou metade da vida trabalhando na biblioteca pública, organizando livros empoeirados em estantes velhas. Nesses momentos só pensava em duas coisas: na garota que observava no ônibus ao voltar para casa e nas histórias de aventuras que pretendia escrever algum dia — mas que na época existiam apenas na imaginação. Os anos passaram e ele nunca falou com a garota; sua principal obra, um manual fajuto de consulta ao acervo.\", \"O navio atravessava tempestades constantes e o capitão, líder aclamado, coordenava as ações com destreza, lançando o navio sempre em direção aos ventos, salvando a tripulação dos maus momentos que ele mesmo criava. Um dia o navio desviou-se da rota e atingiu regiões de mar calmo. Todos os tripulantes comemoraram e descansaram suas forças. Os ventos eram tão bons, o trabalho era tão pouco que em um mês, fartaram-se. Em dois meses, entediaram-se. No terceiro, enforcaram o capitão.\", \"Um dia após o fim do mundo, Jonas despertou às seis horas para dar tempo de se barbear e passar no banco antes de ir ao escritório. No ônibus lotado, passou os olhos pelas manchetes sobre o Apocalipse, mas leu de verdade apenas a análise do empate sem gols do Corinthians. Com 317 quilômetros de congestionamento, atrasou-se. Reincidente, acabou demitido e passou a tarde no bar, reclamando que a crise piorou muito desde que o mundo acabou.\", \"Do nada nasceu um calombo nas costas de todos e ninguém conseguia explicar ou operar. Não demorou para que ele rachasse, dando lugar a um par de asas. Foi uma manhã radiante aquela do eclodir das asas, menos para um moço. Despertara alado e de cuecas. Vestiu a camisa e notou a novidade; ela, antes perfeita, agora o incomodava. Logo pensou: teremos que mexer nos ônibus. Ligou furioso para o governador. Em dois dias já haviam inaugurado corredores de ar com iluminação. A passagem custa seis reais.\"];\r",
+							"\r",
+							"    var randomItem = body[Math.floor(Math.random() * body.length)];\r",
+							"    \r",
+							"    return randomItem; \r",
+							"}\r",
+							"    \r",
+							"pm.environment.set(\"Body\", body());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The status code name has the text: Created\", () => {\r",
+							"pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.nested;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.userId).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.id).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.body).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if the UserId: \" + `${pm.variables.get(\"UserId\")}` + \" is valid\", function () {\r",
+							"    pm.expect(pm.variables.get(\"UserId\")).to.eql(JSON.parse(responseBody).userId);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"{{UserId}}\",\r\n    \"id\": {{Id}},\r\n    \"title\": \"{{Title}}\",\r\n    \"body\": \"{{Body}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - JSONPlaceholder/posts",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function id() {\r",
+							"    var id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];\r",
+							"\r",
+							"    var randomItem = id[Math.floor(Math.random() * id.length)];\r",
+							"\r",
+							"    return randomItem;\r",
+							"}\r",
+							"pm.environment.set(\"Id\", id());\r",
+							"\r",
+							"function title() {\r",
+							"\r",
+							"    var title = [\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris auctor bibendum leo id eleifend. Morbi lobortis augue non fringilla pulvinar. Etiam nunc nisl, dignissim vel.\", \"Tempo. Inesperadamente, inventei uma máquina do tempo.\",  \"Um homem, em Monte Carlo, vai ao cassino, ganha um milhão, volta para casa, se suicida.\", \"Quando acordou o dinossauro ainda estava lá.\", \"70 anos, algumas lágrimas, orelhas peludas.\", \"O suicida era tão meticuloso que teve que refazer diversas vezes o nó da corda para se enforcar.\", \"Uma vida inteira pela frente. O tiro veio por trás.\", \"Quase uma vítima da minha família.\", \"A velha insônia tossiu três da manhã.\", \"Conheceu a esposa em sua festa de despedida.\", \"Vestiu os artefatos, beijou o filho com ternura e saiu pro último trabalho sobre a Terra.\", \"Vende-se sapatinhos de bebê nunca usados.\", \"Uma gaiola saiu à procura de um pássaro.\", \"2 de agosto a Alemanha declarou guerra à Rússia. Natação à tarde.\", \"Nascido no deserto, ainda com sede.\", \"Então você acredita em mim de qualquer maneira?\", \"O homem estava invisível, mas ninguém percebeu.\", \"A mulher que amei se transformou em fantasma.\",\"Eu escolhi paixão. Agora sou pobre.\",\"Fui me confessar ao mar. O que ele disse? Nada.\",\"Se Eu não acreditar em Mim, quem vai acreditar?\",\"Morreu\",\"Escrever sobre sexo, aprender sobre o amor.\", \"Sem futuro, sem passado. Nada perdeu.\", \"Ouvi um barulho no portão, fui ver era a Lua nova.\",\"Assistindo calmamente de cada moldura da porta.\", \"Alzheimer conhecer novas pessoas todos os dias.\", \"Eu perguntei. Eles responderam. Eu escrevi.\", \"Eu ainda faço café para dois.\", \"Em Vênus, Jack olhou na água e encontrou a única coisa que ele apostaria não encontrar lá: um homem.\", \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non neque suscipit ligula accumsan congue.\", \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non.\"];\r",
+							"\r",
+							"    var randomItem = title[Math.floor(Math.random() * title.length)];\r",
+							"    \r",
+							"    return randomItem; \r",
+							"}\r",
+							"    \r",
+							"pm.environment.set(\"Title\", title());\r",
+							"\r",
+							"function body() {\r",
+							"\r",
+							"    var body = [\"Tempo. Inesperadamente, inventei uma máquina do tempo.\", \"Olha, Pai, eu tentei, mas acho que não deu muito certo não…\", \"Um homem, em Monte Carlo, vai ao cassino, ganha um milhão, volta para casa, se suicida.\", \"Quando acordou o dinossauro ainda estava lá.\", \"70 anos, algumas lágrimas, orelhas peludas.\", \"O suicida era tão meticuloso que teve que refazer diversas vezes o nó da corda para se enforcar.\", \"Uma vida inteira pela frente. O tiro veio por trás.\", \"Quase uma vítima da minha família.\", \"A velha insônia tossiu três da manhã.\", \"Conheceu a esposa em sua festa de despedida.\", \"Vestiu os artefatos, beijou o filho com ternura e saiu pro último trabalho sobre a Terra.\", \"Vende-se sapatinhos de bebê nunca usados.\", \"Uma gaiola saiu à procura de um pássaro.\", \"2 de agosto a Alemanha declarou guerra à Rússia. Natação à tarde.\", \"Nascido no deserto, ainda com sede.\", \"Então você acredita em mim de qualquer maneira?\", \"O homem estava invisível, mas ninguém percebeu.\", \"A mulher que amei se transformou em fantasma.\",\"Eu escolhi paixão. Agora sou pobre.\",\"Fui me confessar ao mar. O que ele disse? Nada.\",\"Se Eu não acreditar em Mim, quem vai acreditar?\",\"Morreu\",\"Escrever sobre sexo, aprender sobre o amor.\", \"Sem futuro, sem passado. Nada perdeu.\", \"Ouvi um barulho no portão, fui ver era a Lua nova.\",\"Assistindo calmamente de cada moldura da porta.\", \"Alzheimer conhecer novas pessoas todos os dias.\", \"Eu perguntei. Eles responderam. Eu escrevi.\", \"Eu ainda faço café para dois.\", \"Em Vênus, Jack olhou na água e encontrou a única coisa que ele apostaria não encontrar lá: um homem.\", \"No começo, descrença. Depois, medo, ao ver Bob — tão pequeno — olhando para a faca daquele jeito.\", \"No farol, o menino estende a mão ao carro. Usa nariz de palhaço. Os olhos refletem o brilho do sol.\", \"Quando apertou o gatilho, Mylena não imaginava que o disparo levaria 100 mil anos para atravessar o universo.\", \"Adão tinha de tudo. Celular, mp3, Marlboro. É que Solange, adepta do pompoarismo, tirava de letra as revistas íntimas.\", \"Temia a altura quando pulou para a morte de um prédio em chamas, em 1974. O marido morreu de tifo, a filha mais velha se perdeu e o frio, que foi bom.\", \"Saudade é um pedaço de qualquer coisa morando dentro da gente ainda que louco pra voltar pra casa. A lágrima desceu até encostar no sorriso.\",  \"Padre Francis está há 10 anos na pequena cidade do Colorado. O comércio local estaria estagnado, não fosse o escritório do detetive Bob. Os dois mantêm um acordo secreto: Francis passa informações das confissões, Bob resolve os casos — os delitos, traições e assassinatos da cidadezinha. Os dois ganham dinheiro. Um dia, Bob entra no confessionário e conta como vai matar Francis no dia seguinte. E cumpre.\", \"Passou metade da vida trabalhando na biblioteca pública, organizando livros empoeirados em estantes velhas. Nesses momentos só pensava em duas coisas: na garota que observava no ônibus ao voltar para casa e nas histórias de aventuras que pretendia escrever algum dia — mas que na época existiam apenas na imaginação. Os anos passaram e ele nunca falou com a garota; sua principal obra, um manual fajuto de consulta ao acervo.\", \"O navio atravessava tempestades constantes e o capitão, líder aclamado, coordenava as ações com destreza, lançando o navio sempre em direção aos ventos, salvando a tripulação dos maus momentos que ele mesmo criava. Um dia o navio desviou-se da rota e atingiu regiões de mar calmo. Todos os tripulantes comemoraram e descansaram suas forças. Os ventos eram tão bons, o trabalho era tão pouco que em um mês, fartaram-se. Em dois meses, entediaram-se. No terceiro, enforcaram o capitão.\", \"Um dia após o fim do mundo, Jonas despertou às seis horas para dar tempo de se barbear e passar no banco antes de ir ao escritório. No ônibus lotado, passou os olhos pelas manchetes sobre o Apocalipse, mas leu de verdade apenas a análise do empate sem gols do Corinthians. Com 317 quilômetros de congestionamento, atrasou-se. Reincidente, acabou demitido e passou a tarde no bar, reclamando que a crise piorou muito desde que o mundo acabou.\", \"Do nada nasceu um calombo nas costas de todos e ninguém conseguia explicar ou operar. Não demorou para que ele rachasse, dando lugar a um par de asas. Foi uma manhã radiante aquela do eclodir das asas, menos para um moço. Despertara alado e de cuecas. Vestiu a camisa e notou a novidade; ela, antes perfeita, agora o incomodava. Logo pensou: teremos que mexer nos ônibus. Ligou furioso para o governador. Em dois dias já haviam inaugurado corredores de ar com iluminação. A passagem custa seis reais.\"];\r",
+							"\r",
+							"    var randomItem = body[Math.floor(Math.random() * body.length)];\r",
+							"    \r",
+							"    return randomItem; \r",
+							"}\r",
+							"    \r",
+							"pm.environment.set(\"Body\", body());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The status code name has the text: OK\", () => {\r",
+							"pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.id).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.body).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if the Id: \" + `${pm.variables.get(\"Id\")}` + \" is valid\", function () {\r",
+							"    pm.expect(pm.variables.get(\"Id\")).to.eql(JSON.parse(responseBody).id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"{{Title}}\",\r\n    \"body\": \"{{Body}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/{{Id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"{{Id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH - JSONPlaceholder/posts",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function id() {\r",
+							"    var id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];\r",
+							"\r",
+							"    var randomItem = id[Math.floor(Math.random() * id.length)];\r",
+							"\r",
+							"    return randomItem;\r",
+							"}\r",
+							"pm.environment.set(\"Id\", id());\r",
+							"\r",
+							"function title() {\r",
+							"\r",
+							"    var title = [\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris auctor bibendum leo id eleifend. Morbi lobortis augue non fringilla pulvinar. Etiam nunc nisl, dignissim vel.\", \"Tempo. Inesperadamente, inventei uma máquina do tempo.\",  \"Um homem, em Monte Carlo, vai ao cassino, ganha um milhão, volta para casa, se suicida.\", \"Quando acordou o dinossauro ainda estava lá.\", \"70 anos, algumas lágrimas, orelhas peludas.\", \"O suicida era tão meticuloso que teve que refazer diversas vezes o nó da corda para se enforcar.\", \"Uma vida inteira pela frente. O tiro veio por trás.\", \"Quase uma vítima da minha família.\", \"A velha insônia tossiu três da manhã.\", \"Conheceu a esposa em sua festa de despedida.\", \"Vestiu os artefatos, beijou o filho com ternura e saiu pro último trabalho sobre a Terra.\", \"Vende-se sapatinhos de bebê nunca usados.\", \"Uma gaiola saiu à procura de um pássaro.\", \"2 de agosto a Alemanha declarou guerra à Rússia. Natação à tarde.\", \"Nascido no deserto, ainda com sede.\", \"Então você acredita em mim de qualquer maneira?\", \"O homem estava invisível, mas ninguém percebeu.\", \"A mulher que amei se transformou em fantasma.\",\"Eu escolhi paixão. Agora sou pobre.\",\"Fui me confessar ao mar. O que ele disse? Nada.\",\"Se Eu não acreditar em Mim, quem vai acreditar?\",\"Morreu\",\"Escrever sobre sexo, aprender sobre o amor.\", \"Sem futuro, sem passado. Nada perdeu.\", \"Ouvi um barulho no portão, fui ver era a Lua nova.\",\"Assistindo calmamente de cada moldura da porta.\", \"Alzheimer conhecer novas pessoas todos os dias.\", \"Eu perguntei. Eles responderam. Eu escrevi.\", \"Eu ainda faço café para dois.\", \"Em Vênus, Jack olhou na água e encontrou a única coisa que ele apostaria não encontrar lá: um homem.\", \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non neque suscipit ligula accumsan congue.\", \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non.\"];\r",
+							"\r",
+							"    var randomItem = title[Math.floor(Math.random() * title.length)];\r",
+							"    \r",
+							"    return randomItem; \r",
+							"}\r",
+							"    \r",
+							"pm.environment.set(\"Title\", title());\r",
+							"\r",
+							"function body() {\r",
+							"\r",
+							"    var body = [\"Tempo. Inesperadamente, inventei uma máquina do tempo.\", \"Olha, Pai, eu tentei, mas acho que não deu muito certo não…\", \"Um homem, em Monte Carlo, vai ao cassino, ganha um milhão, volta para casa, se suicida.\", \"Quando acordou o dinossauro ainda estava lá.\", \"70 anos, algumas lágrimas, orelhas peludas.\", \"O suicida era tão meticuloso que teve que refazer diversas vezes o nó da corda para se enforcar.\", \"Uma vida inteira pela frente. O tiro veio por trás.\", \"Quase uma vítima da minha família.\", \"A velha insônia tossiu três da manhã.\", \"Conheceu a esposa em sua festa de despedida.\", \"Vestiu os artefatos, beijou o filho com ternura e saiu pro último trabalho sobre a Terra.\", \"Vende-se sapatinhos de bebê nunca usados.\", \"Uma gaiola saiu à procura de um pássaro.\", \"2 de agosto a Alemanha declarou guerra à Rússia. Natação à tarde.\", \"Nascido no deserto, ainda com sede.\", \"Então você acredita em mim de qualquer maneira?\", \"O homem estava invisível, mas ninguém percebeu.\", \"A mulher que amei se transformou em fantasma.\",\"Eu escolhi paixão. Agora sou pobre.\",\"Fui me confessar ao mar. O que ele disse? Nada.\",\"Se Eu não acreditar em Mim, quem vai acreditar?\",\"Morreu\",\"Escrever sobre sexo, aprender sobre o amor.\", \"Sem futuro, sem passado. Nada perdeu.\", \"Ouvi um barulho no portão, fui ver era a Lua nova.\",\"Assistindo calmamente de cada moldura da porta.\", \"Alzheimer conhecer novas pessoas todos os dias.\", \"Eu perguntei. Eles responderam. Eu escrevi.\", \"Eu ainda faço café para dois.\", \"Em Vênus, Jack olhou na água e encontrou a única coisa que ele apostaria não encontrar lá: um homem.\", \"No começo, descrença. Depois, medo, ao ver Bob — tão pequeno — olhando para a faca daquele jeito.\", \"No farol, o menino estende a mão ao carro. Usa nariz de palhaço. Os olhos refletem o brilho do sol.\", \"Quando apertou o gatilho, Mylena não imaginava que o disparo levaria 100 mil anos para atravessar o universo.\", \"Adão tinha de tudo. Celular, mp3, Marlboro. É que Solange, adepta do pompoarismo, tirava de letra as revistas íntimas.\", \"Temia a altura quando pulou para a morte de um prédio em chamas, em 1974. O marido morreu de tifo, a filha mais velha se perdeu e o frio, que foi bom.\", \"Saudade é um pedaço de qualquer coisa morando dentro da gente ainda que louco pra voltar pra casa. A lágrima desceu até encostar no sorriso.\",  \"Padre Francis está há 10 anos na pequena cidade do Colorado. O comércio local estaria estagnado, não fosse o escritório do detetive Bob. Os dois mantêm um acordo secreto: Francis passa informações das confissões, Bob resolve os casos — os delitos, traições e assassinatos da cidadezinha. Os dois ganham dinheiro. Um dia, Bob entra no confessionário e conta como vai matar Francis no dia seguinte. E cumpre.\", \"Passou metade da vida trabalhando na biblioteca pública, organizando livros empoeirados em estantes velhas. Nesses momentos só pensava em duas coisas: na garota que observava no ônibus ao voltar para casa e nas histórias de aventuras que pretendia escrever algum dia — mas que na época existiam apenas na imaginação. Os anos passaram e ele nunca falou com a garota; sua principal obra, um manual fajuto de consulta ao acervo.\", \"O navio atravessava tempestades constantes e o capitão, líder aclamado, coordenava as ações com destreza, lançando o navio sempre em direção aos ventos, salvando a tripulação dos maus momentos que ele mesmo criava. Um dia o navio desviou-se da rota e atingiu regiões de mar calmo. Todos os tripulantes comemoraram e descansaram suas forças. Os ventos eram tão bons, o trabalho era tão pouco que em um mês, fartaram-se. Em dois meses, entediaram-se. No terceiro, enforcaram o capitão.\", \"Um dia após o fim do mundo, Jonas despertou às seis horas para dar tempo de se barbear e passar no banco antes de ir ao escritório. No ônibus lotado, passou os olhos pelas manchetes sobre o Apocalipse, mas leu de verdade apenas a análise do empate sem gols do Corinthians. Com 317 quilômetros de congestionamento, atrasou-se. Reincidente, acabou demitido e passou a tarde no bar, reclamando que a crise piorou muito desde que o mundo acabou.\", \"Do nada nasceu um calombo nas costas de todos e ninguém conseguia explicar ou operar. Não demorou para que ele rachasse, dando lugar a um par de asas. Foi uma manhã radiante aquela do eclodir das asas, menos para um moço. Despertara alado e de cuecas. Vestiu a camisa e notou a novidade; ela, antes perfeita, agora o incomodava. Logo pensou: teremos que mexer nos ônibus. Ligou furioso para o governador. Em dois dias já haviam inaugurado corredores de ar com iluminação. A passagem custa seis reais.\"];\r",
+							"\r",
+							"    var randomItem = body[Math.floor(Math.random() * body.length)];\r",
+							"    \r",
+							"    return randomItem; \r",
+							"}\r",
+							"    \r",
+							"pm.environment.set(\"Body\", body());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PATCH request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The status code name has the text: OK\", () => {\r",
+							"pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.userId).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.id).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.body).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if the Id: \" + `${pm.variables.get(\"Id\")}` + \" is valid\", function () {\r",
+							"    pm.expect(pm.variables.get(\"Id\")).to.eql(JSON.parse(responseBody).id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"{{Title}}\",\r\n    \"body\": \"{{Body}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/{{Id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"{{Id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - JSONPlaceholder/posts",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function id() {\r",
+							"    var id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];\r",
+							"\r",
+							"    var randomItem = id[Math.floor(Math.random() * id.length)];\r",
+							"\r",
+							"    return randomItem;\r",
+							"}\r",
+							"pm.environment.set(\"Id\", id());\r",
+							"console.log(id());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PATCH request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The status code name has the text: OK\", () => {\r",
+							"pm.response.to.have.status(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/{{Id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"{{Id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
